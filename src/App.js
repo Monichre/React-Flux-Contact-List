@@ -4,6 +4,8 @@ import './App.css';
 // Components
 import Header from './Components/Header.js';
 import Contacts from './Components/Contacts.js';
+import AddContact from './Components/AddContact.js';
+
 import {Grid, Row, Col} from 'react-bootstrap';
 
 class App extends Component {
@@ -14,6 +16,7 @@ class App extends Component {
           <Grid>
               <Row>
                   <Col>
+                      <AddContact />
                       <Contacts />
                   </Col>
               </Row>
