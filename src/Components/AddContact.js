@@ -38,9 +38,13 @@ class AddContact extends Component {
                 }
 
             }, function(){
-                console.log(this.state.newContact);
+                Action.saveContact(this.state.newContact);
             });
         }
+        this.refs.name.value = '';
+        this.refs.email.value = '';
+        this.refs.phone.value = '';
+
 
     }
   render() {

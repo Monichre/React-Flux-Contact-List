@@ -41,7 +41,7 @@ class Contacts extends Component {
         this.setState({
             contacts: AppStore.getContacts()
         }, function(){
-            console.log(this.state);
+            
         });
     }
 

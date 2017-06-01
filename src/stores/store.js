@@ -10,6 +10,10 @@ function setContacts(contacts){
     _contacts = contacts;
 }
 
+function setContact(contact){
+    _contacts.push(contact);
+}
+
 class StoreClass extends EventEmitter {
 
     emitChange(){
@@ -39,6 +43,25 @@ AppStore.dispatchToken = Dispatch.register(action => {
             setContacts(action.contacts);
             AppStore.emitChange();
             break
+
+        case Constants.RECEIVE_CONTACTS_ERROR:
+            alert(action.message);
+            AppStore.emitChange();
+            break
+
+        // State Change for adding Contact **Singular
+        case Constants.RECEIVE_CONTACT: //This RECEIVE_CONTACT is an action coming from our action.js file
+            setContact(action.contact); //This is a native store function we create
+            AppStore.emitChange();
+            break
+
+        case Constants.RECEIVE_CONTACT_ERROR:
+            alert(action.message);
+            AppStore.emitChange();
+            break
+
+
+
         default:
     }
 });

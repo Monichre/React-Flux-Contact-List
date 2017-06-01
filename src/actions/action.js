@@ -18,5 +18,21 @@ export default {
                     message: message
                 });
             });
+    },
+    saveContact: (contact) => {
+        ContactsAPI
+            .saveContact('https://jsonplaceholder.typicode.com/users', contact)
+            .then(contact => {
+                Dispatch.dispatch({
+                    actionType: Constants.RECEIVE_CONTACT,
+                    contact: contact
+                });
+            })
+            .catch(message => {
+                Dispatch.dispatch({
+                    actionType: Constants.RECEIVE_CONTACT_ERROR,
+                    message: message
+                });
+            });
     }
 }
