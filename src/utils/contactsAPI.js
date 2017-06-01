@@ -21,5 +21,16 @@ export default {
                     resolve(JSON.parse(res.text));
                 })
         });
+    },
+    deleteContact: (url, id) => {
+        return new Promise((resolve, reject) => {
+            request
+                .delete(url)
+                .end((err, res) => {
+                    if(err) reject(err);
+                    resolve(JSON.parse(res.text));
+                })
+
+        });
     }
 }
